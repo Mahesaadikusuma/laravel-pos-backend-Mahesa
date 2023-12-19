@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,4 +36,6 @@ Route::middleware([
     // Route::get('/user', [UserController::class, 'index'])->name('user');
 
     Route::resource('/user', UserController::class);
+    Route::resource('/products', ProductController::class);
+
 });
