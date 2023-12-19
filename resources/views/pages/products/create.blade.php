@@ -88,6 +88,21 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label>Price</label>
+                                        <div class="input-group">
+
+                                            <input type="number" class="form-control @error('price') is-invalid @enderror"
+                                                name="price" value="{{ old('price') }}">
+
+                                            <div class="invalid-feedback">
+                                                @error('price')
+                                                    <div class="">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label>Category</label>
                                         <select name="category" class="form-control select2 @error('category') is-invalid @enderror">
                                     

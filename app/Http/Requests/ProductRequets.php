@@ -23,8 +23,8 @@ class ProductRequets extends FormRequest
     {
         return [
             'name' => 'required|string|max:100', 
-            // 'description' => 'required|string|min:10',
-            // 'price' => 'required|integer',  
+            'description' => 'required|string|min:10',
+            'price' => 'required|integer',  
             'stok' => 'required|integer', 
             'category' => 'required|in:food,drink,snack', 
         ];

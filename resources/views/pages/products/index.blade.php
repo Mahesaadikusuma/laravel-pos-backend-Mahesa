@@ -92,6 +92,7 @@
                                             <th>Name</th>
                                             <th>Category</th>
                                             <th>Stok</th>
+                                            <th>Price</th>
                                             <th>created_At</th>
                                             <th>Action</th>
                                         </tr>
@@ -112,6 +113,7 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->category }}</td>
                                                 <td>{{ $item->stok }}</td>
+                                                <td>Rp. {{ number_format($item->price) }}</td>
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>
                                                     <div class="d-flex items-center ">
