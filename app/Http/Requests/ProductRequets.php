@@ -22,8 +22,9 @@ class ProductRequets extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:100', 
+            'name' => 'required|unique:products|string|min:3|max:100', 
             'description' => 'required|string|min:10',
+            'image' => 'required|image|mimes:png,jpg,jpeg',
             'price' => 'required|integer',  
             'stok' => 'required|integer', 
             'category' => 'required|in:food,drink,snack', 

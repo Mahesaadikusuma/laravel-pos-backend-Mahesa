@@ -14,7 +14,7 @@ class Product extends Model
         'price',  
         'stok', 
         'category', 
-        'image,'  
+        'image',  
     ];
     protected $dates = ['created_at', 'updated_at'];
 }

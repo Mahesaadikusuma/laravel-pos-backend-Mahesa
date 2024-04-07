@@ -21,7 +21,8 @@
                 <div class="d-flex align-items-center ">
                     <h1>Products</h1>
                     <div class="ml-3">
-                        <a href="{{ route('products.create') }}" class="px-4 py-2 bg-primary text-white text-decoration-none">Add
+                        <a href="{{ route('products.create') }}"
+                            class="px-4 py-2 bg-primary text-white text-decoration-none">Add
                             product</a>
                     </div>
                 </div>
@@ -35,12 +36,9 @@
                 <div class="row">
                     <div class="col-12">
                         @if (session('Success'))
-                            
-
                             <div class="alert alert-success  alert-dismissible show fade">
                                 <div class="alert-body">
-                                    <button class="close"
-                                        data-dismiss="alert">
+                                    <button class="close" data-dismiss="alert">
                                         <span>&times;</span>
                                     </button>
                                     {{ session('Success') }}.
@@ -93,6 +91,7 @@
                                             <th>Category</th>
                                             <th>Stok</th>
                                             <th>Price</th>
+                                            <th>Image</th>
                                             <th>created_At</th>
                                             <th>Action</th>
                                         </tr>
@@ -114,27 +113,39 @@
                                                 <td>{{ $item->category }}</td>
                                                 <td>{{ $item->stok }}</td>
                                                 <td>Rp. {{ number_format($item->price) }}</td>
+                                                <td>
+                                                    {{-- <img src="{{ asset(Storage::url($item->image)) }}" alt="image Travel"
+                                                        width="100" /> --}}
+
+                                                    @if ($item->image)
+                                                        <img src="{{ asset('storage/products/' . $item->image) }}"
+                                                            alt="" width="100px" class="img-thumbnail">
+                                                    @else
+                                                        <span class="badge badge-danger">No Image</span>
+                                                    @endif
+                                                </td>
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>
                                                     <div class="d-flex items-center ">
                                                         <a href="{{ route('products.edit', $item->id) }}"
-                                                        class="px-4 py-2 bg-primary text-white text-decoration-none">Detail</a>
+                                                            class="px-4 py-2 bg-primary text-white text-decoration-none">Detail</a>
 
-                                                        <form action="{{ route('products.destroy', $item->id) }}" class="ml-2" method="POST">
+                                                        <form action="{{ route('products.destroy', $item->id) }}"
+                                                            class="ml-2" method="POST">
                                                             @csrf
                                                             @method('delete')
-                                                        
-                                                        <button type="submit" class="btn btn-danger ">Delete</button>
+
+                                                            <button type="submit" class="btn btn-danger ">Delete</button>
                                                         </form>
                                                     </div>
 
-                                                    
+
                                                 </td>
                                             </tr>
                                         @empty
-                                        <tr>
-                                            <td colspan="7" class="text-center">No Product</td>
-                                        </tr>
+                                            <tr>
+                                                <td colspan="7" class="text-center">No Product</td>
+                                            </tr>
                                         @endforelse
 
                                     </table>

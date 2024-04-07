@@ -24,6 +24,7 @@ class ProductRequetsUpdate extends FormRequest
         return [
             'name' => 'nullable|string|max:100', 
             'description' => 'nullable|string|min:10',
+            'image' => 'nullable|image|mimes:png,jpg,jpeg',
             'price' => 'nullable|integer',  
             'stok' => 'nullable|integer', 
             'category' => 'nullable|in:food,drink,snack', 

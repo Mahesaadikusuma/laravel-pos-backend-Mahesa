@@ -124,6 +124,23 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="image">Image</label>
+                                        <div class="input-group">
+
+                                            <input id="image" type="file" class="form-control @error('price') is-invalid @enderror"
+                                                name="image" multiple>
+
+                                            <div class="invalid-feedback">
+                                                @error('image')
+                                                    <div class="">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    <div class="form-group">
                                         <label>Description</label>
                                         <div class="input-group">
 
